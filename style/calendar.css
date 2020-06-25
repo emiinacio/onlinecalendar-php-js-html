@@ -1,0 +1,24 @@
+h2 {
+    display: flex;
+    justify-content: center;
+}
+.btn-pink{
+    color: black;
+    border: none;
+    padding: 1vmin;
+    text-align: center;
+    margin: 1vmin;
+    color: white;
+}
+
+.btn-pink:hover {
+    background-color: #EA4C89;
+}
+
+.table .table-bordered {
+    margin: 10vmin;
+}
+
+div.row {
+    margin: 2vmin;
+}
