@@ -9,7 +9,6 @@ sidebar {
     display: block;
     height: calc(100% - 100%);
     width: 250px;
-    box-shadow: -16px 10px 18px 15px #e4e3e3;
 }
 
 .sidebar-title .logo {
@@ -22,9 +21,12 @@ sidebar {
     height: 70px;
 }
 
+sidebar .menu {
+    position: fixed;
+}
 
 sidebar .menu ul li {
-    margin-top: 7%;
+    margin:1vmin;
     padding: 11px;
     list-style: none;
 }
@@ -32,14 +34,18 @@ sidebar .menu ul li {
 sidebar .menu ul li a {
     text-decoration: none;
     color: black;
+    margin-left: 20px;
+    font-size: 18px;
 }
 
-sidebar .menu ul li a:hover {
-    color: #FF178B;
+sidebar .menu ul li.selected {
+    background-color: #f8e6ef;
+    width: 100%;
+    border-radius: 10px;
 }
 
 sidebar .menu ul li a img {
-    width: 30px;
+    width: 25px;
     padding-right: 5px;
 }
 
@@ -62,12 +68,8 @@ sidebar #social {
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
-}
-
-sidebar #social {
-    display: flex;
-    flex-direction: end;
-    margin-top: 70%;
+    
+    margin: 50%;
 }
 
 sidebar #social li {
@@ -77,4 +79,9 @@ sidebar #social li {
 sidebar #social li a img {
     width: 30px;
     height: 30px;
+}
+
+sidebar ul li.selected {
+    background-color: #f8e6ef;
+    
 }

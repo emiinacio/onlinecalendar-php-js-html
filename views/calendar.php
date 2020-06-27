@@ -2,7 +2,7 @@
 
 function build_calendar($month, $year) {
     $mysqli = new mysqli('localhost', 'root', '', 'bookingcalendar');
-    /*$stmt = $mysqli->prepare("select * from tb_bookings where MONTH(date) = ? AND YEAR(date) = ?");
+    $stmt = $mysqli->prepare("select * from tb_bookings where MONTH(date) = ? AND YEAR(date) = ?");
     $stmt->bind_param('ss', $month, $year);
     $tb_bookings = array();
     if($stmt->execute()) {
@@ -13,7 +13,7 @@ function build_calendar($month, $year) {
         }
         $stmt-> close();
       }
-    }*/
+    }
 
 
 
@@ -150,125 +150,61 @@ function build_calendar($month, $year) {
   ?>
 
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="global.css">
-    <link rel="stylesheet" href="sidebar.css">
-    <link rel="stylesheet" href="main.css">
-    <link rel="stylesheet" href="calendar.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;1,500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../style/global.css">
+    <link rel="stylesheet" href="../style/sidebar.css">
+    <link rel="stylesheet" href="../style/main.css">
+    <link rel="stylesheet" href="../style/perfil.css">
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
   
-    <title>Nails - Agendamento</title>
-
-    </style>
-
+    <title>Nails - Perfil</title>
 </head>
 <body>
-    <div id="flex-dashboard">
-        <sidebar>
-            <div class="sidebar-title">
-                <div class="logo">
-                    <img src="../img/logo.png" alt="">
-                </div>
-            </div>
-
-            <div class="menu">
-                <ul>
-                    <li>
-                        <a href="">
-                            <img src="https://image.flaticon.com/icons/svg/2329/2329087.svg" alt="">
-                            Dashboard
-                        </a>
-                    </li>
-                    <li>
-                        <a href="">
-                            <img src="https://image.flaticon.com/icons/svg/2933/2933758.svg" alt="">
-                            Agendamento
-                        </a>
-                    </li>
-                    <li>
-                        <a href="">
-                            <img src="https://image.flaticon.com/icons/svg/2910/2910756.svg" alt="">
-                            Clientes
-                        </a>
-                    </li>
-                    <li>
-                        <a href="">
-                            <img src="https://image.flaticon.com/icons/svg/3102/3102285.svg" alt="">
-                            Finanças
-                        </a>
-                    </li>
-                    <li>
-                        <a href="">
-                            <img src="https://image.flaticon.com/icons/svg/3039/3039564.svg" alt="">
-                            Mensagem
-                        </a>
-                    </li>
-                    <li>
-                        <a href="">
-                            <img src="https://image.flaticon.com/icons/svg/929/929577.svg" alt="">
-                            Configuração
-                        </a>
-                    </li>
-                </ul>
-            </div>
-
-            <div id="social">
-                <ul>
-                    <li>
-                        <a href=""><img src="https://image.flaticon.com/icons/svg/1384/1384005.svg" alt=""></a>
-                    </li>
-                </ul>
-                <ul>
-                    <li>
-                        <a href=""><img src="https://image.flaticon.com/icons/png/512/1384/1384015.png" alt=""></a>
-                    </li>
-                </ul>
-            </div>
-        </sidebar>
-
+  <div id="flex-dashboard">
+  <?php include('sidebar.php'); ?>
+    
         <main>
             <header>
-               <div class="menu-bar">
+                <div class="menu-bar">
                     <a href="">
                         <img src="https://image.flaticon.com/icons/svg/1828/1828859.svg" alt="">
                     </a>
                 </div>
                 <div class="menu-profile">
-                   <a href="">
+                    <a href="perfil.php">
                         <img src="https://image.flaticon.com/icons/svg/2948/2948035.svg" alt="">
                     </a>
                 </div>
                 
-            </header>
-    
+            </header>                
+ 
             <div class="main-content">
-              
-                <div class="row">
-                    <div class="col-md-12 col-sm-12">
-                        <?php
-                            $dateComponents = getdate();
-                            if(isset($_GET['month']) && isset($_GET['year'])){
-                                $month = $_GET['month']; 			     
-                                $year = $_GET['year'];
-                            }else{
-                                $month = $dateComponents['mon']; 			     
-                                $year = $dateComponents['year'];
-                            }
-                            echo build_calendar($month,$year);
-                        ?>
-                    </div>
+              <div class="row">
+                <div class="col-md-12 col-sm-12">
+                  <?php
+                      $dateComponents = getdate();
+                      if(isset($_GET['month']) && isset($_GET['year'])){
+                          $month = $_GET['month']; 			     
+                          $year = $_GET['year'];
+                      }else{
+                          $month = $dateComponents['mon']; 			     
+                          $year = $dateComponents['year'];
+                      }
+                      echo build_calendar($month,$year);
+                  ?>
                 </div>
+              </div>
+            </div>              
           </div>
-            </div>
-        </main> 
+        </main>
+    </div>  
 
-        
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-    
-  </body>    
-</html>     
+    <script src="../script/fiel-birth.js"></script>
+    <script src="../script/perfil-services.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+</body>
+</html>

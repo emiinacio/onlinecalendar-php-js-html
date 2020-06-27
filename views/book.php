@@ -41,19 +41,21 @@ if(isset($_POST['submit'])) {
     }
 }
 
-$duration = 60;
+$duration = 30;
 $cleanup = 0;
 $start= "09:00";
 $end = "19:30";
+$booked = "13:30";
 
 function timeslots($duration, $cleanup, $start, $end) {
     $start = new DateTime($start);
     $end = new DateTime($end);
+    $booked = new DateTime($booked);
     $interval = new DateInterval("PT".$duration."M");
     $cleanupInterval = new DateInterval("PT".$cleanup."M");
     $slots = array();
 
-    for($intStart = $start; $intStart<$end; $intStart->add($interval)->add($cleanupInterval)) {
+    for($intStart = $start; $intStart<$booked; $intStart->add($interval)->add($cleanupInterval)) {
         $endPeriod = clone $intStart;
         $endPeriod->add($interval);
             if($endPeriod>$end){
