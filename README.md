@@ -21,7 +21,7 @@ O calendário tem o intuito de auxiliar e faciliar as marcações onlines, e foi
 
 ## Pré-requisitos
 
-Antes de começar, você vai precisar ter inicializar na sua máquina o Xampp, ativando o Apache e MySQL. 
+Antes de começar, você vai precisar ter inicializado na sua máquina o Xampp, ativando o Apache e MySQL. 
 Além disto é bom ter um editor para trabalhar com o código como [VSCode](https://code.visualstudio.com/)
 <br>
 Acesse em seu navegador: http://localhost/onlinecalendar/src/views/index.php e irá seguir para o calendário
