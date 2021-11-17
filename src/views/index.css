@@ -1,0 +1,129 @@
+h1 {
+    display: flex;
+    justify-content: center;
+    font-family: 'Lobster', cursive;
+}
+
+h2 {
+    font-size: 20px;
+    font-weight: bold;
+    font-family: 'Ubuntu', sans-serif;
+}
+
+.btn-group-xs>.btn, .btn-xs {
+    font-family: 'Ubuntu', sans-serif;
+}
+
+button.changemonth {
+    color: #3899EC;
+    background: none;
+    border: none;
+    font-size: 15px;
+    padding: 10px;
+}
+
+button.changemonth:hover {
+    color: #2979be;
+    font-weight: bold;
+    transition: 2ms;
+} 
+
+.btn-group-xs>.btn, .btn-danger {
+    background-color: #c40233;
+    font-size: 13px;
+    list-style: none;
+    border: none;
+    padding: 5px 10px;
+}
+
+.btn-group-xs>.btn, .btn-success{
+    background-color: #008000;
+    font-size: 13px;
+    list-style: none;
+    border: none;
+    padding: 5px 10px;
+}
+
+@media only screen and (max-width: 800px),
+(min-device-width: 802px) and (max-device-width: 1020px) {
+
+table, thead, tbody, th, td, tr {
+display: block;
+
+}
+
+.empty {
+display: none;
+}
+
+th {
+position: absolute;
+top: -9999px;
+left: -9999px;
+}
+
+tr {
+border: 1px solid #ccc;
+}
+
+td {
+
+border: none;
+border-bottom: 1px solid #eee;
+position: relative;
+padding-left: 50%;
+}
+
+td:nth-of-type(2):before {
+content: "Segunda";
+}
+td:nth-of-type(3):before {
+content: "Terça";
+}
+td:nth-of-type(4):before {
+content: "Quarta";
+}
+td:nth-of-type(5):before {
+content: "Quinta";
+}
+td:nth-of-type(6):before {
+content: "Sexta";
+}
+td:nth-of-type(7):before {
+content: "Sabádo";
+}
+td:nth-of-type(1):before {
+    content: "Domingo";
+    }
+
+}
+
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
+body {
+padding: 0;
+margin: 0;
+}
+}
+
+@media only screen and (min-device-width: 802px) and (max-device-width: 1020px) {
+body {
+width: 495px;
+}
+}
+
+@media (min-width:641px) {
+table {
+table-layout: fixed;
+}
+td {
+width: 33%;
+}
+}
+
+.row{
+margin-top: 20px;
+}
+
+.today{
+background: #d4e6f6;
+}

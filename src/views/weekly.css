@@ -1,0 +1,44 @@
+h1 {
+    display: flex;
+    justify-content: center;
+    font-family: 'Lobster', cursive;
+}
+
+h2 {
+    font-size: 20px;
+    font-weight: bold;
+    font-family: 'Ubuntu', sans-serif;
+}
+
+a {
+    color: #3899EC;
+    background: none;
+    border: none;
+    font-size: 15px;
+    padding: 10px;
+}
+
+.btn-group-xs>.btn, .btn-success{
+    background-color: #008000;
+    font-size: 13px;
+    list-style: none;
+    border: none;
+    padding: 5px 10px;
+}
+
+.btn.btn-default:hover{
+    background-color: #008000;
+    color: white;
+    font-weight: bold;
+    border: none;
+}
+
+.modal-body {
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 15px;
+}
+
+tr {
+    height: 3em;
+    width: 10em;
+}

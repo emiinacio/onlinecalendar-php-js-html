@@ -1,0 +1,32 @@
+div.row.timeslot{
+    display: grid;
+    grid-template-columns: 2fr 2fr;
+    justify-items: center;
+}
+
+.text-center {
+    font-family: 'Lobster', cursive;
+    padding-bottom: 50px;
+}
+
+.btn.btn-default:hover{
+    background-color: #008000;
+    color: white;
+    font-weight: bold;
+    border: none;
+}
+
+.modal-body {
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 15px;
+}
+
+button, input, select, textarea{
+    background-color: #008000;
+    padding: 10px;
+    color: white;
+    border: none;
+    border-radius: 7px;
+    padding: 10px 40px;
+
+}

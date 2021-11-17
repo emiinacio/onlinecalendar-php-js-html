@@ -29,7 +29,7 @@ function build_calendar($month, $year, $room){
     if($stmt->execute()){
         $result = $stmt->get_result();
         if($result->num_rows > 0){
-            while($row = $stmt->fetch_assoc()){
+            while($row = $result->fetch_assoc()){
                 $bookings[] = $row['date'];
             }
             $stmt->close();
@@ -48,12 +48,12 @@ function build_calendar($month, $year, $room){
         $dayOfWeek = $dayOfWeek-1;
     }
 
-    $datetoday = date('Y-m-d'); 
-    $calendar = "<table class='table table-bordered'>"; 
+    $datetoday= date('Y-m-d'); 
+    $calendar= "<table class='table table-bordered'>"; 
     $calendar.= "<center><h2>$monthName $year</h2>"; 
-    $calendar.= "<button class='changemonth btn btn-xs btn-primary' data-month='".date('m', mktime(0, 0, 0, $month-1, 1, $year))."' data-year='".date('Y', mktime(0, 0, 0, $month-1, 1, $year))."'>Mês anterior</button> "; 
-    $calendar.= "<button class='changemonth btn btn-xs btn-primary' data-month='".date('m')."' data-year='".date('Y')."'>Mês atual</button> "; 
-    $calendar.= "<button class='changemonth btn btn-xs btn-primary' data-month='".date('m', mktime(0, 0, 0, $month+1, 1, $year))."' data-year='".date('Y', mktime(0, 0, 0, $month+1, 1, $year))."'>Próximo mês</button></center><br>"; 
+    $calendar.= "<button class='changemonth' data-month='".date('m', mktime(0, 0, 0, $month-1, 1, $year))."' data-year='".date('Y', mktime(0, 0, 0, $month-1, 1, $year))."'>Mês anterior</button> "; 
+    $calendar.= "<button class='changemonth' data-month='".date('m')."' data-year='".date('Y')."'>Mês atual</button> "; 
+    $calendar.= "<button class='changemonth' data-month='".date('m', mktime(0, 0, 0, $month+1, 1, $year))."' data-year='".date('Y', mktime(0, 0, 0, $month+1, 1, $year))."'>Próximo mês</button></center><br>"; 
     $calendar.= "<tr>";
     $calendar.= "
     <form id='room_select_form'>
@@ -85,7 +85,7 @@ function build_calendar($month, $year, $room){
 
     $month = str_pad($month, 2, "0", STR_PAD_LEFT);
     while ($currentDay <= $numberDays) { 
-
+    
     if ($dayOfWeek == 7) { 
         $dayOfWeek = 0; 
         $calendar .= "</tr><tr>"; 
@@ -155,108 +155,16 @@ function checkSlots($mysqli, $date){
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-    <style>
-        @media only screen and (max-width: 800px),
-        (min-device-width: 802px) and (max-device-width: 1020px) {
-
-        /* Force table to not be like tables anymore */
-        table, thead, tbody, th, td, tr {
-            display: block;
-
-        }
-
-        .empty {
-            display: none;
-        }
-
-        /* Hide table headers (but not display: none;, for accessibility) */
-        th {
-            position: absolute;
-            top: -9999px;
-            left: -9999px;
-        }
-
-        tr {
-            border: 1px solid #ccc;
-        }
-
-        td {
-            /* Behave  like a "row" */
-            border: none;
-            border-bottom: 1px solid #eee;
-            position: relative;
-            padding-left: 50%;
-        }
-
-
-
-        /*
-        Label the data
-        */
-        td:nth-of-type(1):before {
-            content: "Domingo";
-        }
-        td:nth-of-type(2):before {
-            content: "Segunda";
-        }
-        td:nth-of-type(3):before {
-            content: "Terça";
-        }
-        td:nth-of-type(4):before {
-            content: "Quarta";
-        }
-        td:nth-of-type(5):before {
-            content: "Quinta";
-        }
-        td:nth-of-type(6):before {
-            content: "Sexta";
-        }
-        td:nth-of-type(7):before {
-            content: "Sabádo";
-        }
-
-
-        }
-
-        /* Smartphones (portrait and landscape) ----------- */
-
-        @media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
-        body {
-            padding: 0;
-            margin: 0;
-        }
-        }
-
-        /* iPads (portrait and landscape) ----------- */
-
-        @media only screen and (min-device-width: 802px) and (max-device-width: 1020px) {
-        body {
-            width: 495px;
-        }
-        }
-
-        @media (min-width:641px) {
-        table {
-            table-layout: fixed;
-        }
-        td {
-            width: 33%;
-        }
-        }
-
-        .row{
-        margin-top: 20px;
-        }
-
-        .today{
-        background: yellow;
-        }
-    </style>
+    <link rel="stylesheet" href="index.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Ubuntu&display=swap" rel="stylesheet">
     <title>Agendamento</title>
 </head>
 <body style="background-color: #f9f9f9;"> 
     <div class="container"> 
         <div class="row"> 
+            <h1>Calendário de Reservas</h1>
             <div class="col-md-12"> 
                     <?php 
                         $dateComponents = getdate();
