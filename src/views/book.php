@@ -19,10 +19,10 @@ if(isset($_GET['date'])){
 if(isset($_POST['submit'])){
     $name = $_POST['name'];
     $email = $_POST['email'];
-    $email = $_POST['timeslot'];
-    $email = $_POST['contact'];
+    $timeslot= $_POST['timeslot'];
+    $contact = $_POST['contact'];
     $stmt = $mysqli->prepare("select * from bookings where date = ?");
-    $stmt->bind_param('s', $date);
+    $stmt->bind_param('ss', $date, $timeslot);
     if($stmt->execute()){
         $result = $stmt->get_result();
         if($result->num_rows>0){
@@ -32,6 +32,7 @@ if(isset($_POST['submit'])){
             $stmt->bind_param('sssss', $name, $timeslot, $email, $contact, $date);
             $stmt->execute();
             $msg = "<div class='alert alert-success'>Agendamento Confirmado</div>";
+            $bookings[] = $timeslot;
             $stmt->close();
             $mysqli->close();
         }
