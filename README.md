@@ -8,7 +8,7 @@ O calendário tem o intuito de auxiliar e faciliar as marcações onlines, e foi
 - [x] Criar caixa de datas com os horários
 - [x] Criar formulário de confirmação da reseva - modal
 - [x] Criar timeslot
-- [] Mensagens de Alerta
+- [ ] Mensagens de Alerta
 - [ ] Criar integração com o banco de dados
 - [x] Criar calendário semanal
 - [ ] Criar área de login do usuário
