@@ -47,13 +47,13 @@ function build_calendar($month, $year, $room){
     }else {
         $dayOfWeek = $dayOfWeek-1;
     }
-        
+
     $datetoday = date('Y-m-d'); 
     $calendar = "<table class='table table-bordered'>"; 
     $calendar.= "<center><h2>$monthName $year</h2>"; 
-    $calendar.= "<button class='changemonth btn btn-xs btn-primary' data-month='".date('m', mktime(0, 0, 0, $month-1, 1, $year))."' data-year='".date('Y', mktime(0, 0, 0, $month-1, 1, $year))."'>Previous Month</button> "; 
-    $calendar.= " <button class='changemonth btn btn-xs btn-primary' data-month='".date('m')."' data-year='".date('Y')."'>Current Month</button> "; 
-    $calendar.= "<button class='changemonth btn btn-xs btn-primary' data-month='".date('m', mktime(0, 0, 0, $month+1, 1, $year))."' data-year='".date('Y', mktime(0, 0, 0, $month+1, 1, $year))."'>Next Month</button></center><br>"; 
+    $calendar.= "<button class='changemonth btn btn-xs btn-primary' data-month='".date('m', mktime(0, 0, 0, $month-1, 1, $year))."' data-year='".date('Y', mktime(0, 0, 0, $month-1, 1, $year))."'>Mês anterior</button> "; 
+    $calendar.= "<button class='changemonth btn btn-xs btn-primary' data-month='".date('m')."' data-year='".date('Y')."'>Mês atual</button> "; 
+    $calendar.= "<button class='changemonth btn btn-xs btn-primary' data-month='".date('m', mktime(0, 0, 0, $month+1, 1, $year))."' data-year='".date('Y', mktime(0, 0, 0, $month+1, 1, $year))."'>Próximo mês</button></center><br>"; 
     $calendar.= "<tr>";
     $calendar.= "
     <form id='room_select_form'>
