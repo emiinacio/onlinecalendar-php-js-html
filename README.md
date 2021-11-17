@@ -17,7 +17,7 @@ O calendário tem o intuito de auxiliar e faciliar as marcações onlines, e foi
 <h4> 
 	🚧 Em construção...  🚧
 </h4>
-<br><br>
+<br>
 
 ## Pré-requisitos
 
